@@ -358,10 +358,11 @@ const projects = {
         github: '#',
         demo: '#'
     },
-    mvpro: {
+mvpro: {
         title: 'MV Inventario Pro',
         description: '🚀 La versión mejorada. Aquí aprendí a diseñar correctamente. Optimicé queries de 10 segundos a 85ms, agregué validación con Zod, seguridad JWT, módulo POS con facturación automática, y containerización con Docker. Este proyecto me enseñó que la calidad es arquitectura.',
-        image: '<i class="fas fa-crown text-8xl text-neon-cyan/40"></i>',
+        images: [], // Placeholder - solo HTML en el modal
+        imageHtml: '<i class="fas fa-crown text-8xl text-neon-cyan/40"></i>',
         technologies: ['Node.js', 'Express.js', 'MySQL', 'Docker', 'Zod', 'JWT'],
         features: [
             '💳 Módulo POS con facturación automática',
