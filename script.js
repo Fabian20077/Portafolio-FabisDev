@@ -623,41 +623,45 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
  * Elegante scroll animation system
  * Fade + translateY suave, stagger ligero, duración 0.6-0.8s
  */
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-};
+try {
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all scroll animation elements
+    document.querySelectorAll('.scroll-fade, .scroll-stagger, .scroll-scale, .scroll-slide-left, .scroll-slide-right').forEach(el => {
+        observer.observe(el);
     });
-}, observerOptions);
 
-// Observe all scroll animation elements
-document.querySelectorAll('.scroll-fade, .scroll-stagger, .scroll-scale, .scroll-slide-left, .scroll-slide-right').forEach(el => {
-    observer.observe(el);
-});
-
-// Additional observer for sections to add fade-in on scroll
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-        }
+    // Additional observer for sections to add fade-in on scroll
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
     });
-}, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-});
 
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0.95';
-    sectionObserver.observe(section);
-});
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '1';
+        sectionObserver.observe(section);
+    });
+} catch (e) {
+    console.log('Scroll animations skipped:', e.message);
+}
 
 // ===== EXPORTAR UTILIDADES (opcional, por si se necesitan en consola) =====
 window.portfolioUtils = {
