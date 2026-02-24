@@ -3,528 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fabián Pilonieta (Fabisdev) - Full Stack Developer & QA Engineer. Especializado en Backend, MySQL, Docker y arquitectura escalable.">
-    <meta name="keywords" content="full stack developer, backend engineer, QA, Node.js, MySQL, Docker, JavaScript, TypeScript">
+    <meta name="description" content="Fabián Pilonieta (Fabisdev) - Full Stack Developer & QA Engineer">
     <meta name="author" content="Fabián Pilonieta">
     <meta name="theme-color" content="#00d9ff">
-    
     <title>Fabisdev - Full Stack Developer & QA Engineer</title>
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome para iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'neon-blue': '#00d9ff',
-                        'neon-cyan': '#00f0ff',
-                        'neon-purple': '#d946ef',
-                        'neon-pink': '#ec4899',
-                        'accent': '#10b981',
-                        'bg-dark': '#0a0f1c',
-                        'bg-darker': '#050812',
-                        'bg-card': '#0f1629',
-                        'text-muted': '#a0aec0',
-                        'text-subtle': '#64748b'
-                    },
-                    fontFamily: {
-                        'display': ['Space Grotesk', 'sans-serif']
-                    },
-                    keyframes: {
-                        'neon-glow': {
-                            '0%, 100%': { 
-                                textShadow: '0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(217, 70, 239, 0.3)',
-                                filter: 'drop-shadow(0 0 8px rgba(0, 217, 255, 0.4))'
-                            },
-                            '50%': { 
-                                textShadow: '0 0 20px rgba(0, 217, 255, 0.8), 0 0 40px rgba(217, 70, 239, 0.6)',
-                                filter: 'drop-shadow(0 0 20px rgba(0, 217, 255, 0.7))'
-                            }
-                        },
-                        'float': {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-15px)' }
-                        },
-                        'slide-in': {
-                            'from': { opacity: '0', transform: 'translateY(20px)' },
-                            'to': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        'pulse-neon': {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.5' }
-                        },
-                        'rotate-slow': {
-                            'from': { transform: 'rotate(0deg)' },
-                            'to': { transform: 'rotate(360deg)' }
-                        }
-                    },
-                    animation: {
-                        'neon-glow': 'neon-glow 3s ease-in-out infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'slide-in': 'slide-in 0.6s ease-out',
-                        'pulse-neon': 'pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'rotate-slow': 'rotate-slow 20s linear infinite'
-                    }
-                }
-            }
-        }
-    </script>
-    
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-bg-dark text-white font-sans overflow-x-hidden scroll-smooth">
+<body style="background-color: #0a0f1c; color: white; font-family: 'Inter', sans-serif; margin: 0;">
 
-    <!-- NAVBAR FIJA -->
-    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-lg border-b border-neon-blue/20 z-50 transition-all duration-300 shadow-lg shadow-neon-blue/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="#" class="text-2xl font-black text-neon-blue animate-pulse-neon hover:text-neon-cyan transition-colors">
-                    fabisdev
+    <!-- NAVBAR -->
+    <nav id="navbar" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(5, 8, 18, 0.95); border-bottom: 1px solid rgba(0, 217, 255, 0.15);">
+        <div style="max-width: 1280px; margin: 0 auto; padding: 0 1rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 64px;">
+                <a href="#hero" style="font-size: 1.5rem; font-weight: 700; color: #00d9ff; text-decoration: none;">
+                    fabisdev<span style="color: white;">.</span>
                 </a>
-                <ul class="hidden md:flex gap-8 text-sm font-medium">
-                    <li><a href="#stack" class="hover:text-neon-cyan transition-colors">Stack</a></li>
-                    <li><a href="#experiencia" class="hover:text-neon-cyan transition-colors">Experiencia</a></li>
-                    <li><a href="#proyectos" class="hover:text-neon-cyan transition-colors">Proyectos</a></li>
-                    <li><a href="#certificados" class="hover:text-neon-cyan transition-colors">Certificados</a></li>
-                    <li><a href="#contacto" class="hover:text-neon-cyan transition-colors">Contacto</a></li>
+                <ul id="navMenu" style="display: flex; gap: 0.5rem; list-style: none; margin: 0; padding: 0;">
+                    <li><a href="#hero" class="nav-link" data-section="hero" style="color: #9ca3af; text-decoration: none; padding: 0.5rem 1rem; display: block; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Inicio</a></li>
+                    <li><a href="#stack" class="nav-link" data-section="stack" style="color: #9ca3af; text-decoration: none; padding: 0.5rem 1rem; display: block; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Stack</a></li>
+                    <li><a href="#formacion" class="nav-link" data-section="formacion" style="color: #9ca3af; text-decoration: none; padding: 0.5rem 1rem; display: block; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Formación</a></li>
+                    <li><a href="#experiencia" class="nav-link" data-section="experiencia" style="color: #9ca3af; text-decoration: none; padding: 0.5rem 1rem; display: block; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Experiencia</a></li>
+                    <li><a href="#proyectos" class="nav-link" data-section="proyectos" style="color: #9ca3af; text-decoration: none; padding: 0.5rem 1rem; display: block; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Proyectos</a></li>
+                    <li><a href="#certificados" class="nav-link" data-section="certificados" style="color: #9ca3af; text-decoration: none; padding: 0.5rem 1rem; display: block; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Certificados</a></li>
+                    <li><a href="#contacto" class="nav-link" data-section="contacto" style="color: #9ca3af; text-decoration: none; padding: 0.5rem 1rem; display: block; font-size: 0.875rem; font-weight: 500; transition: color 0.3s;">Contacto</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden bg-gradient-to-br from-bg-dark via-bg-darker to-bg-dark/80 radial-glow">
-        <!-- Fondo animado -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <div class="absolute w-96 h-96 bg-neon-blue rounded-full blur-3xl top-10 left-10 animate-float"></div>
-            <div class="absolute w-96 h-96 bg-neon-purple rounded-full blur-3xl bottom-20 right-10 animate-float" style="animation-delay: 2s;"></div>
+    <div style="padding-top: 64px;"></div>
+
+    <!-- HERO -->
+    <section id="hero" style="min-height: calc(100vh - 64px); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #0a0f1c, #050812);">
+        <div style="position: absolute; inset: 0; opacity: 0.2;">
+            <div style="position: absolute; top: 10%; left: 10%; width: 300px; height: 300px; background: #00d9ff; border-radius: 50%; filter: blur(80px); animation: float 6s ease-in-out infinite;"></div>
+            <div style="position: absolute; bottom: 20%; right: 10%; width: 300px; height: 300px; background: #d946ef; border-radius: 50%; filter: blur(80px); animation: float 6s ease-in-out infinite 2s;"></div>
         </div>
-        
-        <!-- Contenido principal -->
-        <div class="relative z-10 text-center max-w-3xl mx-auto px-4 animate-slide-in">
-            <h1 class="text-5xl md:text-7xl font-black mb-4 font-display text-neon-blue neon-glow">
-                Fabisdev
-            </h1>
-            
-            <div class="text-xl md:text-2xl mb-2 h-8 text-text-muted">
-                <span class="text-neon-cyan font-bold" id="typing">Full Stack Developer</span>
-            </div>
-            
-            <p class="text-lg text-text-muted mb-8 max-w-2xl mx-auto leading-relaxed">
-                Backend Engineer & QA Specialist especializado en arquitecturas escalables, validación estricta de datos e infraestructura containerizada
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
-                <a href="https://github.com/fabisdev" target="_blank" rel="noopener" 
-                   class="px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-bg-dark hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
-                    GitHub
-                </a>
-                <a href="https://linkedin.com/in/fabisdev" target="_blank" rel="noopener"
-                   class="px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-bg-dark hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
-                    LinkedIn
-                </a>
-                <a href="#contacto"
-                   class="px-6 py-3 border-2 border-neon-cyan text-neon-cyan font-semibold rounded-lg hover:bg-neon-cyan hover:text-bg-dark hover:shadow-lg hover:shadow-neon-cyan/50 transition-all">
-                    Contactar
-                </a>
+        <div style="text-align: center; position: relative; z-index: 10; max-width: 48rem; margin: 0 auto; padding: 2rem;">
+            <img src="foto-perfil.png" alt="Fabisdev" style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #00d9ff; margin-bottom: 1.5rem; object-fit: cover; box-shadow: 0 0 30px rgba(0,217,255,0.4);">
+            <h1 style="font-size: clamp(3rem, 8vw, 4.5rem); font-weight: 800; color: #00d9ff; margin-bottom: 1rem; text-shadow: 0 0 40px rgba(0,217,255,0.5);">Fabisdev</h1>
+            <p style="font-size: 1.25rem; color: #9ca3af; margin-bottom: 1.5rem;"><span id="typing" style="color: #00f0ff; font-weight: 700;"></span></p>
+            <p style="color: #9ca3af; max-width: 36rem; margin: 0 auto 2rem; line-height: 1.75;">Backend Engineer & QA Specialist especializado en arquitecturas escalables, validación estricta de datos e infraestructura containerizada</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                <a href="https://github.com/Fabian20077" target="_blank" style="padding: 0.75rem 1.5rem; border: 2px solid #00d9ff; color: #00d9ff; border-radius: 0.5rem; font-weight: 600; text-decoration: none; transition: all 0.3s;">GitHub</a>
+                <a href="https://www.linkedin.com/in/fabian-pilonieta-5b2432317" target="_blank" style="padding: 0.75rem 1.5rem; border: 2px solid #00d9ff; color: #00d9ff; border-radius: 0.5rem; font-weight: 600; text-decoration: none; transition: all 0.3s;">LinkedIn</a>
+                <a href="#contacto" style="padding: 0.75rem 1.5rem; border: 2px solid #00f0ff; color: #00f0ff; border-radius: 0.5rem; font-weight: 600; text-decoration: none; transition: all 0.3s;">Contactar</a>
             </div>
         </div>
     </section>
 
-    <!-- STACK SECTION -->
-    <section id="stack" class="py-24 px-4 md:py-48 relative">
-        <!-- Divisor sutil superior -->
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
-        
-        <div class="max-w-7xl mx-auto">
-            <!-- Encabezado mejorado -->
-            <div class="mb-20">
-                <h2 class="text-4xl md:text-5xl font-black mb-4 text-neon-blue neon-glow">Stack Técnico</h2>
-                <p class="text-lg text-text-muted max-w-3xl">Arquitectura validada en producción. Cada componente elegido estratégicamente para performance, seguridad y escalabilidad.</p>
-            </div>
+    <!-- STACK -->
+    <section id="stack" style="padding: 5rem 1rem; background: #0a0f1c;">
+        <div style="max-width: 1280px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; font-weight: 700; color: #00d9ff; text-align: center; margin-bottom: 1rem;">Stack Técnico</h2>
+            <p style="color: #9ca3af; text-align: center; max-width: 42rem; margin: 0 auto 3rem;">Arquitectura validada en producción. Cada componente elegido estratégicamente.</p>
             
-            <!-- Grid de 5 categorías - Visual y potente -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                
-                <!-- 1. BACKEND CORE -->
-                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-neon-blue/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-neon-blue/20">
-                    <!-- Glow effect al hover -->
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <div class="absolute inset-0 bg-gradient-to-br from-neon-blue/10 to-transparent rounded-xl"></div>
-                    </div>
-                    
-                    <div class="relative z-10 space-y-6">
-                        <!-- Icono GRANDE + Título -->
-                        <div class="space-y-4">
-                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">⚙️</div>
-                            <h3 class="text-2xl font-black text-neon-blue group-hover:text-neon-cyan transition-colors">Backend Core</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">Arquitectura escalable basada en eventos. Node.js + Express para máximo rendimiento.</p>
-                        </div>
-                        
-                        <!-- Tech items (sin tooltips, visual directo) -->
-                        <div class="space-y-2 pt-4 border-t border-neon-blue/20">
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-blue group-hover:bg-neon-cyan transition-colors"></span>
-                                <span class="text-sm font-medium">Node.js 18+ Event-Driven</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-blue group-hover:bg-neon-cyan transition-colors"></span>
-                                <span class="text-sm font-medium">Express.js Middleware Pattern</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-blue group-hover:bg-neon-cyan transition-colors"></span>
-                                <span class="text-sm font-medium">MVC Architecture Separation</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-blue group-hover:bg-neon-cyan transition-colors"></span>
-                                <span class="text-sm font-medium">Centralized Error Handling</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. DATABASE -->
-                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-neon-cyan/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-neon-cyan/20">
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/10 to-transparent rounded-xl"></div>
-                    </div>
-                    
-                    <div class="relative z-10 space-y-6">
-                        <div class="space-y-4">
-                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">💾</div>
-                            <h3 class="text-2xl font-black text-neon-cyan group-hover:text-neon-blue transition-colors">Database</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">MySQL 8.0 con optimización agresiva. Queries < 85ms garantizado.</p>
-                        </div>
-                        
-                        <div class="space-y-2 pt-4 border-t border-neon-cyan/20">
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">MySQL 8.0 ACID Compliant</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Índices Primarios y Compuestos</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Foreign Keys Integridad</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-cyan group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Triggers & Stored Procedures</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. FRONTEND & UI -->
-                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-neon-purple/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-neon-purple/20">
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <div class="absolute inset-0 bg-gradient-to-br from-neon-purple/10 to-transparent rounded-xl"></div>
-                    </div>
-                    
-                    <div class="relative z-10 space-y-6">
-                        <div class="space-y-4">
-                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">🎨</div>
-                            <h3 class="text-2xl font-black text-neon-purple group-hover:text-neon-blue transition-colors">Frontend & UI</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">Diseño responsive, accesibilidad a11y y animaciones premium.</p>
-                        </div>
-                        
-                        <div class="space-y-2 pt-4 border-t border-neon-purple/20">
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-purple group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">JavaScript ES6+ Modern</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-purple group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Tailwind CSS Custom Theme</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-purple group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Responsive Design Mobile-First</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-purple group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">CSS Keyframe Animations</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. INFRAESTRUCTURA -->
-                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-neon-pink/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-neon-pink/20">
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <div class="absolute inset-0 bg-gradient-to-br from-neon-pink/10 to-transparent rounded-xl"></div>
-                    </div>
-                    
-                    <div class="relative z-10 space-y-6">
-                        <div class="space-y-4">
-                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">🐳</div>
-                            <h3 class="text-2xl font-black text-neon-pink group-hover:text-neon-blue transition-colors">Infraestructura</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">Containerización con Docker. Orquestación y deploy escalable.</p>
-                        </div>
-                        
-                        <div class="space-y-2 pt-4 border-t border-neon-pink/20">
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-pink group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Docker Multi-Stage Builds</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-pink group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Docker Compose Orchestration</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-pink group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Env Variables & Secrets</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-neon-pink group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Git Workflow & CI/CD Ready</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. VALIDACIÓN & SEGURIDAD -->
-                <div class="group stack-card scroll-stagger relative p-8 bg-gradient-to-br from-bg-card/60 to-bg-card/30 backdrop-blur-xl border border-neon-blue/20 rounded-xl hover:border-accent/60 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-accent/20 md:col-span-2 lg:col-span-1">
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <div class="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent rounded-xl"></div>
-                    </div>
-                    
-                    <div class="relative z-10 space-y-6">
-                        <div class="space-y-4">
-                            <div class="text-7xl group-hover:scale-110 group-hover:drop-shadow-lg transition-transform duration-300 origin-left">🛡️</div>
-                            <h3 class="text-2xl font-black text-accent group-hover:text-neon-blue transition-colors">Validación & Seguridad</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">3 capas de protección. QA mindset desde arquitectura.</p>
-                        </div>
-                        
-                        <div class="space-y-2 pt-4 border-t border-accent/20">
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-accent group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Zod Schema Validation</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-accent group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">JWT Auth Stateless</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-accent group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Bcryptjs Password Hashing</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-text-muted hover:text-neon-cyan transition-colors">
-                                <span class="w-2 h-2 rounded-full bg-accent group-hover:bg-neon-blue transition-colors"></span>
-                                <span class="text-sm font-medium">Security Headers + CORS</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Divisor sutil inferior -->
-        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
-    </section>
-
-                        <li class="flex items-start gap-3">
-                            <span class="text-neon-blue font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Interfaz responsive</span>
-                        </li>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(0,217,255,0.2);">
+                    <i class="fas fa-cogs" style="font-size: 2.5rem; color: #00d9ff; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #00d9ff; margin-bottom: 0.5rem;">Backend Core</h3>
+                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">Arquitectura escalable basada en eventos. Node.js + Express.</p>
+                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.25rem;">Node.js 18+ Event-Driven</li>
+                        <li style="margin-bottom: 0.25rem;">Express.js Middleware Pattern</li>
+                        <li>MVC Architecture</li>
                     </ul>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 font-bold mt-1">-</span>
-                            <span class="text-text-muted">Sin módulo POS</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 font-bold mt-1">-</span>
-                            <span class="text-text-muted">Cálculos manuales de impuestos</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 font-bold mt-1">-</span>
-                            <span class="text-text-muted">Reportes estáticos</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-500 font-bold mt-1">-</span>
-                            <span class="text-text-muted">UX sin optimización de fatiga visual</span>
-                        </li>
+                </div>
+
+                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(0,240,255,0.2);">
+                    <i class="fas fa-database" style="font-size: 2.5rem; color: #00f0ff; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #00f0ff; margin-bottom: 0.5rem;">Database</h3>
+                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">MySQL 8.0 con optimización. Queries &lt; 85ms.</p>
+                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.25rem;">MySQL 8.0 ACID</li>
+                        <li style="margin-bottom: 0.25rem;">Índices Compuestos</li>
+                        <li>Triggers & Stored Procedures</li>
+                    </ul>
+                </div>
+
+                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(217,70,239,0.2);">
+                    <i class="fas fa-palette" style="font-size: 2.5rem; color: #d946ef; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #d946ef; margin-bottom: 0.5rem;">Frontend & UI</h3>
+                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">Diseño responsive y animaciones premium.</p>
+                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.25rem;">JavaScript ES6+</li>
+                        <li style="margin-bottom: 0.25rem;">Tailwind CSS</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+
+                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(236,72,153,0.2);">
+                    <i class="fab fa-docker" style="font-size: 2.5rem; color: #ec4899; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ec4899; margin-bottom: 0.5rem;">Infraestructura</h3>
+                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">Containerización con Docker.</p>
+                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.25rem;">Docker Multi-Stage</li>
+                        <li style="margin-bottom: 0.25rem;">Docker Compose</li>
+                        <li>CI/CD Ready</li>
+                    </ul>
+                </div>
+
+                <div style="padding: 1.5rem; border-radius: 0.75rem; background: linear-gradient(180deg, rgba(15,22,41,0.6), transparent); border: 1px solid rgba(16,185,129,0.2); grid-column: span 2;">
+                    <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; color: #10b981; margin-bottom: 0.5rem;">Validación & Seguridad</h3>
+                    <p style="color: #9ca3af; font-size: 0.875rem; margin-bottom: 1rem;">3 capas de protección. QA mindset.</p>
+                    <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1rem;">
+                        <li style="margin-bottom: 0.25rem;">Zod Schema Validation</li>
+                        <li style="margin-bottom: 0.25rem;">JWT Auth Stateless</li>
+                        <li>Security Headers + CORS</li>
                     </ul>
                 </div>
             </div>
-        </div>
+            </div>
     </section>
 
-    <!-- MV INVENTARIO PRO -->
-    <section id="mv-pro" class="py-20 px-4 md:py-28">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-black mb-4 text-white hero-glow">MV Inventario Pro</h2>
-            <p class="text-lg text-text-muted mb-12">Sistema Profesional - Solución Empresarial Completa</p>
-            
-            <div class="p-8 bg-bg-card border-2 border-neon-blue/50 rounded-lg shadow-lg shadow-neon-blue/30">
-                <h3 class="text-2xl font-bold text-white mb-6">Funcionalidades Avanzadas</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Módulo POS con facturación integrada</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Cálculo automático de impuestos (precisión decimal)</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Panel Settings dinámico (logos corporativos)</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Reportes PDF/Excel profesionales</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Arquitectura: 3 contenedores Docker</span>
-                        </li>
-                    </ul>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Validación estricta con Zod</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Seguridad JWT + bcryptjs</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Análisis estratégico (tendencias, márgenes)</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Modo oscuro nativo optimizado</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-accent font-bold mt-1">✓</span>
-                            <span class="text-text-muted">Auditoría completa en BD</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Retos Técnicos -->
-            <h3 class="text-2xl font-bold text-white mt-16 mb-8">Retos Técnicos Resueltos</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="p-6 bg-bg-card border-l-4 border-neon-blue rounded">
-                    <h4 class="text-lg font-bold text-neon-blue mb-3">Optimización de Queries</h4>
-                    <p class="text-text-muted text-sm">Reducción de 10 segundos a 85ms mediante índices estratégicos y vistas materializadas. Análisis con EXPLAIN PLAN.</p>
-                </div>
-                <div class="p-6 bg-bg-card border-l-4 border-neon-blue rounded">
-                    <h4 class="text-lg font-bold text-neon-blue mb-3">Precisión Contable</h4>
-                    <p class="text-text-muted text-sm">Cálculos de impuestos con Decimal.js. Validación en BD con triggers. Auditoría automática de cambios.</p>
-                </div>
-                <div class="p-6 bg-bg-card border-l-4 border-neon-blue rounded">
-                    <h4 class="text-lg font-bold text-neon-blue mb-3">Assets Dinámicos</h4>
-                    <p class="text-text-muted text-sm">Upload seguro de logos. Inyección en PDF con pdfkit. Notificación en tiempo real con WebSocket.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- QA MINDSET SECTION -->
-    <section id="qa" class="py-24 px-4 md:py-48 relative bg-gradient-to-b from-accent/5 via-accent/3 to-transparent">
-        <!-- Patrón de fondo sutil diferenciador -->
-        <div class="absolute inset-0 opacity-20 pointer-events-none">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-accent/20 to-transparent rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-radial from-neon-purple/10 to-transparent rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="mb-20">
-                <h2 class="text-4xl md:text-5xl font-black mb-4 text-white">QA Mindset</h2>
-                <p class="text-lg text-text-muted max-w-3xl">Calidad como Prioridad - Mi enfoque diferencia entre junior y senior. Las capas de validación evitan 80% de bugs antes de producción.</p>
+    <!-- FORMACIÓN -->
+    <section id="formacion" style="padding: 5rem 1rem; background: #0a0f1c;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #00d9ff; margin-bottom: 0.5rem;">Formación Académica</h2>
+                <p style="color: #9ca3af; font-size: 1.125rem;">Base sólida en análisis y desarrollo de software</p>
+                <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #00d9ff, #00f0ff); margin: 1rem auto 0; border-radius: 3px;"></div>
             </div>
             
-            <!-- Grid de 6 puntos con PEQUEÑOS iconos y titles claros -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 1. Validación -->
-                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300 hover:shadow-lg hover:shadow-accent/20">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="text-4xl">🛡️</div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-accent mb-2">Validación Estricta</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">
-                                Esquemas de Zod en 3 capas: Frontend (UX) + Backend (lógica) + Base de Datos (constraints). Previene inyecciones SQL y garantiza integridad.
-                            </p>
+            <div style="position: relative; padding-left: 3rem;">
+                <div style="position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #10b981, #00d9ff); opacity: 0.25;"></div>
+                
+                <div style="position: relative; margin-bottom: 2rem;">
+                    <div style="position: absolute; left: -1.5rem; width: 16px; height: 16px; background: #10b981; border-radius: 50%; box-shadow: 0 0 15px #10b981;"></div>
+                    <div style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(15,22,41,0.8)); border: 1px solid rgba(16,185,129,0.3);">
+                        <div style="margin-bottom: 0.75rem;">
+                            <span style="padding: 0.25rem 0.75rem; background: rgba(16,185,129,0.2); color: #10b981; font-size: 0.75rem; font-weight: 600; border-radius: 9999px;">TECNÓLOGO</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- 2. Seguridad JWT -->
-                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="text-4xl">🔐</div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-accent mb-2">Seguridad JWT</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">
-                                Autenticación stateless con JWT + bcryptjs. Validación en middleware, autorización por roles y refresh tokens para sesiones.
-                            </p>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">Tecnólogo en Análisis y Desarrollo de Software</h3>
+                        <p style="color: #10b981; font-weight: 500; margin-bottom: 1rem;">SENA - Servicio Nacional de Aprendizaje</p>
+                        
+                        <h4 style="font-size: 0.875rem; font-weight: 600; color: #00d9ff; margin-bottom: 0.75rem;">Competencias Adquiridas:</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: #10b981;">✓</span>
+                                <span style="color: #9ca3af; font-size: 0.875rem;">Levantamiento de requisitos funcionales y no funcionales</span>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: #10b981;">✓</span>
+                                <span style="color: #9ca3af; font-size: 0.875rem;">Diseño de listas de chequeo y validación</span>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: #10b981;">✓</span>
+                                <span style="color: #9ca3af; font-size: 0.875rem;">Análisis de sistemas y arquitectura de software</span>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: #10b981;">✓</span>
+                                <span style="color: #9ca3af; font-size: 0.875rem;">Diseño y administración de bases de datos</span>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: #10b981;">✓</span>
+                                <span style="color: #9ca3af; font-size: 0.875rem;">Metodologías de desarrollo de software</span>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: #10b981;">✓</span>
+                                <span style="color: #9ca3af; font-size: 0.875rem;">Documentación técnica y especificación de casos de uso</span>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: #10b981;">✓</span>
+                                <span style="color: #9ca3af; font-size: 0.875rem;">Pruebas de software y control de calidad</span>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                                <span style="color: #10b981;">✓</span>
+                                <span style="color: #9ca3af; font-size: 0.875rem;">Implementación y mantenimiento de sistemas</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- 3. Testing Funcional -->
-                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="text-4xl">📊</div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-accent mb-2">Testing Funcional</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">
-                                Pruebas rigurosas de casos límite: concurrencia, edge cases, cálculos decimales precisos, validación de logs.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. Análisis de Logs -->
-                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="text-4xl">🔍</div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-accent mb-2">Análisis de Logs</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">
-                                Monitoreo activo de contenedores Docker. Identificación de cuellos de botella, errores silenciosos y patrones anómalos.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. Auditoría BD -->
-                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="text-4xl">🗄️</div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-accent mb-2">Auditoría BD</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">
-                                Validación exhaustiva con MySQL Workbench: constraints, triggers, relaciones, historiales y datos corruptos.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. 3 Capas -->
-                <div class="group p-8 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/20 transition-all duration-300  hover:shadow-lg hover:shadow-accent/20">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="text-4xl">🏗️</div>
-                        <div class="flex-1">
-                            <h3 class="text-xl font-bold text-accent mb-2">Arquitectura 3 Capas</h3>
-                            <p class="text-sm text-text-muted leading-relaxed">
-                                Frontend validación (UX) + Backend (lógica) + BD (constraints). Fallo en una capa no compromete integridad total.
-                            </p>
+                        
+                        <div style="margin-top: 1rem; padding: 0.75rem; border-radius: 0.5rem; background: rgba(0,217,255,0.1); border: 1px solid rgba(0,217,255,0.2);">
+                            <p style="color: #d1d5db; font-size: 0.875rem;"><span style="color: #00d9ff; font-weight: 600;">Estado:</span> Etapa productiva en búsqueda</p>
                         </div>
                     </div>
                 </div>
@@ -532,490 +188,342 @@
         </div>
     </section>
 
-    <!-- EXPERIENCIA SECTION -->
-    <section id="experiencia" class="py-20 px-4 md:py-36 relative bg-gradient-to-b from-bg-dark/50 via-bg-dark to-bg-dark/50">
-        <!-- Divisor sutil superior -->
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-black mb-4 text-neon-blue neon-glow">Experiencia</h2>
-            <p class="text-lg text-text-muted mb-12">Mi viaje en desarrollo - Aprendiendo con cada proyecto</p>
+    <!-- EXPERIENCIA -->
+    <section id="experiencia" style="padding: 6rem 1rem; background: linear-gradient(180deg, rgba(10,15,28,0.9), #0a0f1c 50%, rgba(10,15,28,0.9));">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #00d9ff; margin-bottom: 0.5rem; text-shadow: 0 0 30px rgba(0,217,255,0.3);">Experiencia Profesional</h2>
+                <p style="color: #9ca3af; font-size: 1.125rem; max-width: 32rem; margin: 0 auto;">Trayectoria enfocada en resultados tangibles y crecimiento continuo</p>
+                <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #00d9ff, #00f0ff); margin: 1rem auto 0; border-radius: 3px;"></div>
+            </div>
             
-            <div class="space-y-8">
-                <!-- Experiencia 1 -->
-                <div class="p-8 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="text-4xl text-neon-blue">
-                            <i class="fas fa-graduation-cap"></i>
+            <div style="position: relative;">
+                <div style="position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #00d9ff, #00f0ff, #d946ef); opacity: 0.25;"></div>
+
+                <div style="position: relative; margin-bottom: 3rem;">
+                    <div style="position: absolute; left: 0; width: 16px; height: 16px; background: #00d9ff; border-radius: 50%; box-shadow: 0 0 15px #00d9ff;"></div>
+                    <div style="margin-left: 3rem; padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(0,217,255,0.2);">
+                        <div style="margin-bottom: 0.75rem;">
+                            <span style="padding: 0.25rem 0.75rem; background: rgba(0,217,255,0.15); color: #00d9ff; font-size: 0.75rem; font-weight: 600; border-radius: 9999px; margin-right: 0.5rem; border: 1px solid rgba(0,217,255,0.3);">ACTUAL</span>
+                            <span style="color: #6b7280; font-size: 0.875rem;">2024 - Presente</span>
                         </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-neon-blue mb-2">Aprendizaje Continuo</h3>
-                            <p class="text-neon-cyan font-semibold mb-3">Desarrollador Autodidacta | 2024 - Presente</p>
-                            <p class="text-text-muted leading-relaxed">
-                                Especializándome en arquitectura backend escalable, validación de datos y experiencia de usuario. 
-                                Utilizando tecnologías modernas como Node.js, Express, MySQL y Docker para construir soluciones empresariales.
-                            </p>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">Desarrollador Full Stack</h3>
+                        <p style="color: #00f0ff; font-weight: 500; margin-bottom: 1rem;">Proyectos Freelance & Desarrollo Personal</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="padding: 0.25rem 0.5rem; background: rgba(55,65,81,0.4); color: #d1d5db; font-size: 0.75rem; border-radius: 0.25rem; border: 1px solid rgba(75,85,99,0.5);">Node.js</span>
+                            <span style="padding: 0.25rem 0.5rem; background: rgba(55,65,81,0.4); color: #d1d5db; font-size: 0.75rem; border-radius: 0.25rem; border: 1px solid rgba(75,85,99,0.5);">Express</span>
+                            <span style="padding: 0.25rem 0.5rem; background: rgba(55,65,81,0.4); color: #d1d5db; font-size: 0.75rem; border-radius: 0.25rem; border: 1px solid rgba(75,85,99,0.5);">MySQL</span>
+                            <span style="padding: 0.25rem 0.5rem; background: rgba(55,65,81,0.4); color: #d1d5db; font-size: 0.75rem; border-radius: 0.25rem; border: 1px solid rgba(75,85,99,0.5);">Docker</span>
                         </div>
+                        <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1.25rem;">
+                            <li style="margin-bottom: 0.5rem; list-style: none;"><span style="color: #00d9ff; margin-right: 0.5rem;">✓</span>Desarrollo de aplicaciones <strong style="color: white;">full-stack</strong> con arquitectura escalable</li>
+                            <li style="margin-bottom: 0.5rem; list-style: none;"><span style="color: #00f0ff; margin-right: 0.5rem;">✓</span>Optimización de queries SQL: <strong style="color: white;">10s → 85ms</strong> (99% mejora)</li>
+                            <li style="list-style: none;"><span style="color: #d946ef; margin-right: 0.5rem;">✓</span>Implementación de validación en <strong style="color: white;">3 capas</strong></li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Experiencia 2 -->
-                <div class="p-8 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="text-4xl text-neon-cyan">
-                            <i class="fas fa-lightbulb"></i>
+                <div style="position: relative; margin-bottom: 3rem;">
+                    <div style="position: absolute; left: 0; width: 16px; height: 16px; background: #00f0ff; border-radius: 50%; box-shadow: 0 0 15px #00f0ff;"></div>
+                    <div style="margin-left: 3rem; padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(0,240,255,0.2);">
+                        <div style="margin-bottom: 0.75rem;">
+                            <span style="padding: 0.25rem 0.75rem; background: rgba(16,185,129,0.15); color: #10b981; font-size: 0.75rem; font-weight: 600; border-radius: 9999px; margin-right: 0.5rem; border: 1px solid rgba(16,185,129,0.3);">ESPECIALIZACIÓN</span>
+                            <span style="color: #6b7280; font-size: 0.875rem;">2024 - Presente</span>
                         </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-neon-cyan mb-2">Mindset de Calidad</h3>
-                            <p class="text-text-subtle font-semibold mb-3">QA First Approach</p>
-                            <p class="text-text-muted leading-relaxed">
-                                Implemento validación rigurosa en 3 capas: Frontend (UX), Backend (lógica) y Base de Datos (constraints). 
-                                Creo que la calidad no es un paso final, sino parte fundamental de la arquitectura desde el inicio.
-                            </p>
-                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">QA & Calidad de Software</h3>
+                        <p style="color: #00f0ff; font-weight: 500; margin-bottom: 1rem;">Mindset de Calidad First</p>
+                        <ul style="color: #9ca3af; font-size: 0.875rem; padding-left: 1.25rem;">
+                            <li style="margin-bottom: 0.5rem; list-style: none;"><span style="color: #00f0ff; margin-right: 0.5rem;">→</span>Diseño de sistemas de validación robustos</li>
+                            <li style="margin-bottom: 0.5rem; list-style: none;"><span style="color: #00f0ff; margin-right: 0.5rem;">→</span>Checklists de validación para cada módulo</li>
+                            <li style="margin-bottom: 0.5rem; list-style: none;"><span style="color: #00f0ff; margin-right: 0.5rem;">→</span>Pruebas funcionales, estructurales y de integración</li>
+                            <li style="list-style: none;"><span style="color: #00f0ff; margin-right: 0.5rem;">→</span>Documentación técnica de casos de prueba</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Lección de Vida -->
-                <div class="p-8 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 border border-neon-blue/30 rounded-lg">
-                    <div class="flex items-start gap-4">
-                        <div class="text-4xl text-neon-purple">
-                            <i class="fas fa-rocket"></i>
+                <div style="position: relative; margin-bottom: 3rem;">
+                    <div style="position: absolute; left: 0; width: 16px; height: 16px; background: #d946ef; border-radius: 50%; box-shadow: 0 0 15px #d946ef;"></div>
+                    <div style="margin-left: 3rem; padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(0,217,255,0.08), rgba(15,22,41,0.8), rgba(217,70,239,0.08)); border: 1px solid rgba(0,217,255,0.3);">
+                        <div style="margin-bottom: 1rem;">
+                            <span style="padding: 0.25rem 0.75rem; background: rgba(217,70,239,0.15); color: #d946ef; font-size: 0.75rem; font-weight: 600; border-radius: 9999px; border: 1px solid rgba(217,70,239,0.3);">EVOLUCIÓN</span>
                         </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-white mb-3">La Evolución del Aprendizaje</h3>
-                            <p class="text-text-muted leading-relaxed mb-4">
-                                <span class="text-neon-blue font-semibold">La versión 1.0 me enseñó a construir;</span> 
-                                entendí los fundamentos de backend, bases de datos y cómo estructurar un proyecto de cero.
-                            </p>
-                            <p class="text-text-muted leading-relaxed mb-4">
-                                <span class="text-neon-cyan font-semibold">La versión actual me enseñó a diseñar y mejorar;</span> 
-                                optimicé queries de 10 segundos a 85ms, implementé seguridad robusta y creé una UX pensada en el usuario.
-                            </p>
-                            <p class="text-text-muted leading-relaxed">
-                                <span class="text-neon-pink font-semibold">Aprendí que los errores no son fallas personales,</span> 
-                                sino <span class="text-accent">oportunidades para fortalecer arquitectura, validaciones y experiencia de usuario.</span>
-                            </p>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 1rem;">De v1.0 a v2.0</h3>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <div style="padding: 0.75rem; border-radius: 0.5rem; background: rgba(0,217,255,0.05); border: 1px solid rgba(0,217,255,0.2);">
+                                <div style="color: #00d9ff; font-weight: 700; font-size: 1.5rem;">v1.0</div>
+                                <p style="color: #9ca3af; font-size: 0.75rem; margin-top: 0.25rem;">Fundamentos & Construcción</p>
+                                <p style="color: #6b7280; font-size: 0.7rem; margin-top: 0.25rem;">Aprendí la base: Node.js, Express, MySQL, REST APIs</p>
+                            </div>
+                            <div style="padding: 0.75rem; border-radius: 0.5rem; background: rgba(0,240,255,0.05); border: 1px solid rgba(0,240,255,0.2);">
+                                <div style="color: #00f0ff; font-weight: 700; font-size: 1.5rem;">v2.0</div>
+                                <p style="color: #9ca3af; font-size: 0.75rem; margin-top: 0.25rem;">Optimización & Diseño</p>
+                                <p style="color: #6b7280; font-size: 0.7rem; margin-top: 0.25rem;">Optimicé: seguridad, validación 3 capas, Docker</p>
+                            </div>
                         </div>
+
+                        <div style="padding: 0.75rem; border-radius: 0.5rem; background: linear-gradient(90deg, rgba(16,185,129,0.1), rgba(16,185,129,0.05)); border: 1px solid rgba(16,185,129,0.3);">
+                            <p style="font-size: 0.875rem; color: #d1d5db;"><span style="color: #10b981; font-weight: 600;">Resultado:</span> Los errores no son fallas, son oportunidades para fortalecer la arquitectura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(15,22,41,0.6), rgba(10,15,28,0.6)); border: 1px solid rgba(0,217,255,0.2);">
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: white; margin-bottom: 1.5rem; text-align: center;">Impacto Medible</h3>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #00d9ff;">99%</div>
+                        <p style="color: #9ca3af; font-size: 0.875rem;">Mejora en queries</p>
+                        <p style="color: #6b7280; font-size: 0.75rem;">10s → 85ms</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #00f0ff;">3</div>
+                        <p style="color: #9ca3af; font-size: 0.875rem;">Capas de validación</p>
+                        <p style="color: #6b7280; font-size: 0.75rem;">Frontend/Backend/BD</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #d946ef;">100%</div>
+                        <p style="color: #9ca3af; font-size: 0.875rem;">Seguridad</p>
+                        <p style="color: #6b7280; font-size: 0.75rem;">JWT + Bcrypt</p>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #10b981;">∞</div>
+                        <p style="color: #9ca3af; font-size: 0.875rem;">Escalabilidad</p>
+                        <p style="color: #6b7280; font-size: 0.75rem;">Docker Ready</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROYECTOS SECTION -->
-    <section id="proyectos" class="py-20 px-4 md:py-32 relative">
-        <!-- Divisor sutil superior -->
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
+    <!-- PROYECTOS -->
+    <section id="proyectos" style="padding: 5rem 1rem; background: #0a0f1c;">
+        <div style="max-width: 1024px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; font-weight: 700; color: #00d9ff; text-align: center; margin-bottom: 1rem;">Proyectos</h2>
+            <p style="color: #9ca3af; text-align: center; margin-bottom: 3rem;">Dos versiones que trazan mi evolución</p>
+
+            <!-- MV INVENTARIO 1.0 -->
+            <div style="max-width: 672px; margin: 0 auto 4rem;">
+                <!-- Logo clickeable -->
+                <div onclick="openCarousel('mv1')" style="border-radius: 0.75rem; border: 1px solid rgba(0,217,255,0.3); margin-bottom: 1.5rem; cursor: pointer; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(0,217,255,0.1), rgba(0,15,30,0.9)); height: 200px; display: flex; align-items: center; justify-content: center; transition: all 0.3s;" onmouseover="this.style.borderColor='rgba(0,217,255,0.6)'" onmouseout="this.style.borderColor='rgba(0,217,255,0.3)'">
+                    <img src="public/assets/images/projects/Mv inventario 1-0/logos/mv1-logo.png" alt="MV 1.0 Logo" style="max-width: 80%; max-height: 80%; object-contain;">
+                    <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,217,255,0.2); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; color: #00d9ff;">MV 1.0</div>
+                </div>
+                
+                <span style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(0,217,255,0.2); color: #00d9ff; font-size: 0.875rem; border-radius: 9999px; margin-bottom: 0.5rem;">Prototipo Funcional</span>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">MV Inventario <span style="color: #00d9ff;">1.0</span></h3>
+                <p style="color: #9ca3af; margin-bottom: 1rem;">Mi primer proyecto serio. Aprendí los fundamentos de backend, bases de datos y arquitectura.</p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                    <div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid rgba(0,217,255,0.4); background: rgba(0,217,255,0.1); text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #00d9ff;">4</div>
+                        <div style="font-size: 0.75rem; color: #9ca3af;">KPIs</div>
+                    </div>
+                    <div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid rgba(0,240,255,0.4); background: rgba(0,240,255,0.1); text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #00f0ff;">Real-time</div>
+                        <div style="font-size: 0.75rem; color: #9ca3af;">Análisis</div>
+                    </div>
+                    <div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid rgba(217,70,239,0.4); background: rgba(217,70,239,0.1); text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #d946ef;">∞</div>
+                        <div style="font-size: 0.75rem; color: #9ca3af;">Escalable</div>
+                    </div>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="padding: 0.25rem 0.75rem; background: rgba(0,217,255,0.2); color: #00d9ff; font-size: 0.875rem; border-radius: 0.25rem; border: 1px solid rgba(0,217,255,0.5);">Node.js</span>
+                    <span style="padding: 0.25rem 0.75rem; background: rgba(0,217,255,0.2); color: #00d9ff; font-size: 0.875rem; border-radius: 0.25rem; border: 1px solid rgba(0,217,255,0.5);">Express</span>
+                    <span style="padding: 0.25rem 0.75rem; background: rgba(0,240,255,0.2); color: #00f0ff; font-size: 0.875rem; border-radius: 0.25rem; border: 1px solid rgba(0,240,255,0.5);">MySQL</span>
+                    <span style="padding: 0.25rem 0.75rem; background: rgba(217,70,239,0.2); color: #d946ef; font-size: 0.875rem; border-radius: 0.25rem; border: 1px solid rgba(217,70,239,0.5);">Chart.js</span>
+                </div>
+            </div>
+
+            <!-- MV INVENTARIO PRO -->
+            <div style="max-width: 672px; margin: 0 auto;">
+                <!-- Logo clickeable -->
+                <div onclick="openCarousel('mvpro')" style="border-radius: 0.75rem; border: 1px solid rgba(0,240,255,0.3); margin-bottom: 1.5rem; cursor: pointer; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(0,240,255,0.1), rgba(217,70,239,0.05)); height: 200px; display: flex; align-items: center; justify-content: center; transition: all 0.3s;" onmouseover="this.style.borderColor='rgba(0,240,255,0.6)'" onmouseout="this.style.borderColor='rgba(0,240,255,0.3)'">
+                    <img src="public/assets/images/projects/Mv inventario 1-0/logos/mvpro-logo.png.png" alt="MV Pro Logo" style="max-width: 80%; max-height: 80%; object-contain;">
+                    <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,240,255,0.2); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; color: #00f0ff;">MV Pro</div>
+                </div>
+                
+                <span style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(0,240,255,0.2); color: #00f0ff; font-size: 0.875rem; border-radius: 9999px; margin-bottom: 0.5rem;">Optimización Avanzada</span>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">MV Inventario <span style="color: #00f0ff;">Pro</span></h3>
+                <p style="color: #9ca3af; margin-bottom: 1rem;">Optimización de queries (10s → 85ms), validación 3 capas, JWT y containerización Docker.</p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                    <div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid rgba(0,240,255,0.4); background: rgba(0,240,255,0.1); text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #00f0ff;">10x</div>
+                        <div style="font-size: 0.75rem; color: #9ca3af;">Más Rápido</div>
+                    </div>
+                    <div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid rgba(16,185,129,0.4); background: rgba(16,185,129,0.1); text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #10b981;">100%</div>
+                        <div style="font-size: 0.75rem; color: #9ca3af;">Validación</div>
+                    </div>
+                    <div style="padding: 1rem; border-radius: 0.5rem; border: 1px solid rgba(217,70,239,0.4); background: rgba(217,70,239,0.1); text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #d946ef;">3</div>
+                        <div style="font-size: 0.75rem; color: #9ca3af;">Contenedores</div>
+                    </div>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span style="padding: 0.25rem 0.75rem; background: rgba(0,240,255,0.2); color: #00f0ff; font-size: 0.875rem; border-radius: 0.25rem; border: 1px solid rgba(0,240,255,0.5);">Node.js</span>
+                    <span style="padding: 0.25rem 0.75rem; background: rgba(16,185,129,0.2); color: #10b981; font-size: 0.875rem; border-radius: 0.25rem; border: 1px solid rgba(16,185,129,0.5);">Zod</span>
+                    <span style="padding: 0.25rem 0.75rem; background: rgba(217,70,239,0.2); color: #d946ef; font-size: 0.875rem; border-radius: 0.25rem; border: 1px solid rgba(217,70,239,0.5);">Docker</span>
+                    <span style="padding: 0.25rem 0.75rem; background: rgba(236,72,153,0.2); color: #ec4899; font-size: 0.875rem; border-radius: 0.25rem; border: 1px solid rgba(236,72,153,0.5);">JWT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL CARRUSEL -->
+    <div id="carouselModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); z-index: 9999; align-items: center; justify-content: center;">
+        <button onclick="closeCarousel()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; z-index: 10000;">&times;</button>
         
-        <div class="max-w-7xl mx-auto">
-            <!-- Encabezado mejorado -->
-            <div class="mb-16">
-                <h2 class="text-4xl md:text-5xl font-black mb-3 text-neon-blue neon-glow">Proyectos</h2>
-                <p class="text-lg text-text-muted max-w-2xl">Dos versiones que trazan mi evolución. De aprender a construir, a dominar el diseño y la optimización.</p>
+        <button onclick="changeImage(-1)" style="position: absolute; left: 20px; background: rgba(0,217,255,0.2); border: none; color: #00d9ff; padding: 1rem; border-radius: 50%; cursor: pointer; font-size: 1.5rem;">&#10094;</button>
+        
+        <div style="max-width: 80%; max-height: 80%; text-align: center;">
+            <img id="carouselImage" src="" style="max-width: 100%; max-height: 70vh; border-radius: 0.5rem; border: 2px solid rgba(0,217,255,0.3);">
+            <p id="carouselCaption" style="color: #9ca3af; margin-top: 1rem; font-size: 1rem;"></p>
+            <div id="carouselDots" style="margin-top: 1rem;"></div>
+        </div>
+        
+        <button onclick="changeImage(1)" style="position: absolute; right: 20px; background: rgba(0,217,255,0.2); border: none; color: #00d9ff; padding: 1rem; border-radius: 50%; cursor: pointer; font-size: 1.5rem;">&#10095;</button>
+    </div>
+
+    <!-- CERTIFICADOS -->
+    <section id="certificados" style="padding: 5rem 1rem; background: linear-gradient(180deg, rgba(10,15,28,0.8), #0a0f1c);">
+        <div style="max-width: 1024px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #00d9ff; margin-bottom: 0.5rem;">Certificaciones</h2>
+                <p style="color: #9ca3af; font-size: 1.125rem;">Educación continua y validación de competencias</p>
+                <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #00d9ff, #00f0ff); margin: 1rem auto 0; border-radius: 3px;"></div>
             </div>
-
-<!-- PROYECTO 1: MV INVENTARIO 1.0 - Mini-landing format -->
-            <div class="project-showcase scroll-fade mb-16 cursor-pointer group" data-project="mv1">
-                <div class="space-y-8">
-                    <!-- Imagen con tamaño controlado -->
-                    <div class="relative rounded-xl overflow-hidden image-shadow image-border h-64 md:h-80 lg:h-96 max-w-4xl mx-auto">
-                        <div class="h-full w-full">
-                            <img src="public/assets/images/projects/Mv inventario 1-0/dashboard.png" alt="MV 1.0 Dashboard" class="carousel-image w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
-                            <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent opacity-40"></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+                <!-- Certificado 1: Docker -->
+                <div onclick="openCert('public/assets/certificates/certificado_Docker Foundations Course.pdf')" style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(0,217,255,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0,217,255,0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0,217,255,0.3)'">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">Docker Foundations</h3>
+                            <p style="font-size: 0.75rem; color: #9ca3af;">Course Completion</p>
                         </div>
-
-<!-- Carousel dots overlay -->
-                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-blue/70 hover:bg-neon-blue transition-all" data-slide="0"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-blue/40 hover:bg-neon-blue transition-all" data-slide="1"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-blue/40 hover:bg-neon-blue transition-all" data-slide="2"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-blue/40 hover:bg-neon-blue transition-all" data-slide="3"></button>
-                        </div>
-
-                        <!-- Carousel controls -->
-                        <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-neon-blue/80 hover:bg-neon-blue text-white rounded-full transition-all opacity-0 group-hover:opacity-100 z-10 flex items-center justify-center shadow-lg">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-neon-blue/80 hover:bg-neon-blue text-white rounded-full transition-all opacity-0 group-hover:opacity-100 z-10 flex items-center justify-center shadow-lg">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+                        <i class="fab fa-docker" style="font-size: 1.5rem; color: #00d9ff;"></i>
                     </div>
+                    <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 1rem;">2025</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span style="flex: 1; padding: 0.5rem; background: rgba(0,217,255,0.1); border: 1px solid rgba(0,217,255,0.3); border-radius: 0.25rem; font-size: 0.75rem; color: #00d9ff; text-align: center;">Contenedores</span>
+                    </div>
+                </div>
 
-                    <!-- Contenido DEBAJO -->
-                    <div class="space-y-8 pt-4">
-                        <!-- Badge + Títulos -->
-                        <div class="space-y-4">
-<span class="inline-block px-4 py-2 bg-neon-blue/20 text-neon-blue rounded-full text-xs font-bold uppercase tracking-wider">Prototipo Funcional</span>
-                            <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-                                MV Inventario <span class="text-neon-blue">1.0</span>
-                            </h3>
-                            <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-3xl">
-                                Mi primer proyecto serio. Aprendí los fundamentos: backend basado en eventos, bases de datos relacionales y cómo pensar arquitectura desde el inicio.
-                            </p>
+                <!-- Certificado 2: Claude Code -->
+                <div onclick="openCert('public/assets/certificates/cerficado calude-code.pdf')" style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(217,70,239,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(217,70,239,0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(217,70,239,0.3)'">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">Claude Code</h3>
+                            <p style="font-size: 0.75rem; color: #9ca3af;">Anthropic</p>
                         </div>
+                        <i class="fas fa-robot" style="font-size: 1.5rem; color: #d946ef;"></i>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 1rem;">2025</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span style="flex: 1; padding: 0.5rem; background: rgba(217,70,239,0.1); border: 1px solid rgba(217,70,239,0.3); border-radius: 0.25rem; font-size: 0.75rem; color: #d946ef; text-align: center;">IA para Desarrollo</span>
+                    </div>
+                </div>
 
-                        <!-- 3 MÉTRICAS GRANDES como cards con hover -->
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-blue/15 to-neon-blue/5 border border-neon-blue/40 rounded-xl hover:border-neon-blue/80 hover:bg-neon-blue/25 hover:shadow-lg hover:shadow-neon-blue/20 transition-all duration-300 group/stat">
-                                <div class="text-6xl md:text-7xl font-black text-neon-blue mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">4</div>
-                                <div class="text-sm font-bold text-neon-blue mb-2 uppercase tracking-widest">KPIs Principales</div>
-                                <p class="text-xs text-text-muted leading-relaxed">Dashboard con análisis en tiempo real usando Chart.js</p>
-                            </div>
-                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-cyan/15 to-neon-cyan/5 border border-neon-cyan/40 rounded-xl hover:border-neon-cyan/80 hover:bg-neon-cyan/25 hover:shadow-lg hover:shadow-neon-cyan/20 transition-all duration-300 group/stat">
-                                <div class="text-5xl md:text-6xl font-black text-neon-cyan mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">Real-time</div>
-                                <div class="text-sm font-bold text-neon-cyan mb-2 uppercase tracking-widest">Análisis en Vivo</div>
-                                <p class="text-xs text-text-muted leading-relaxed">Datos actualizados constantemente en cliente</p>
-                            </div>
-                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-purple/15 to-neon-purple/5 border border-neon-purple/40 rounded-xl hover:border-neon-purple/80 hover:bg-neon-purple/25 hover:shadow-lg hover:shadow-neon-purple/20 transition-all duration-300 group/stat">
-                                <div class="text-6xl md:text-7xl font-black text-neon-purple mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">∞</div>
-                                <div class="text-sm font-bold text-neon-purple mb-2 uppercase tracking-widest">Escalable</div>
-                                <p class="text-xs text-text-muted leading-relaxed">Arquitectura lista para crecer sin limites</p>
-                            </div>
+                <!-- Certificado 3: Power BI -->
+                <div onclick="openCert('public/assets/certificates/certificado-claseflix PowerBI.pdf')" style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(16,185,129,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(16,185,129,0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(16,185,129,0.3)'">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">Power BI</h3>
+                            <p style="font-size: 0.75rem; color: #9ca3af;">ClaseFlix</p>
                         </div>
+                        <i class="fas fa-chart-pie" style="font-size: 1.5rem; color: #10b981;"></i>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 1rem;">2025</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span style="flex: 1; padding: 0.5rem; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); border-radius: 0.25rem; font-size: 0.75rem; color: #10b981; text-align: center;">Análisis de Datos</span>
+                    </div>
+                </div>
 
-                        <!-- Descripción narrativa -->
-                        <div class="space-y-5 text-lg text-text-muted leading-relaxed border-l-2 border-neon-blue/30 pl-6">
-                            <p>
-                                Este proyecto fue mi primer contacto serio con arquitectura backend. Implementé un dashboard con 4 KPIs principales, análisis en tiempo real con Chart.js, exportación de reportes (Excel, CSV, PDF) e interfaz totalmente responsive.
-                            </p>
-                            <p>
-                                <span class="text-neon-blue font-semibold">Lo que aprendí:</span> Fundamentos sólidos de Node.js + Express, diseño de bases de datos relacionales, patrones REST API y cómo pensar en escalabilidad desde el arquitecto.
-                            </p>
+                <!-- Certificado 4: Curador de Datos -->
+                <div onclick="openCert('public/assets/certificates/cerficado-curador de datos.pdf')" style="padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(0,240,255,0.3); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0,240,255,0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0,240,255,0.3)'">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">Curador de Datos</h3>
+                            <p style="font-size: 0.75rem; color: #9ca3af;">Fundación Carlos Slim</p>
                         </div>
-
-                        <!-- Tech Stack horizontal -->
-                        <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-text-muted uppercase tracking-widest">Stack Técnico</h4>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-6 py-3 bg-neon-blue/15 border border-neon-blue/50 text-neon-blue rounded-lg text-sm font-semibold hover:bg-neon-blue/30 hover:border-neon-blue/80 transition-all">⚙️ Node.js</span>
-                                <span class="px-6 py-3 bg-neon-blue/15 border border-neon-blue/50 text-neon-blue rounded-lg text-sm font-semibold hover:bg-neon-blue/30 hover:border-neon-blue/80 transition-all">📚 Express.js</span>
-                                <span class="px-6 py-3 bg-neon-cyan/15 border border-neon-cyan/50 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 hover:border-neon-cyan/80 transition-all">💾 MySQL 8.0</span>
-                                <span class="px-6 py-3 bg-neon-purple/15 border border-neon-purple/50 text-neon-purple rounded-lg text-sm font-semibold hover:bg-neon-purple/30 hover:border-neon-purple/80 transition-all">📊 Chart.js</span>
-                            </div>
-                        </div>
-
-                        <!-- Botones CTA -->
-                        <div class="flex gap-4 flex-wrap pt-4">
-                            <a href="#" class="px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-cyan text-bg-dark font-bold rounded-lg hover:shadow-xl hover:shadow-neon-blue/50 transition-all group/btn text-base">
-                                Ver Proyecto <span class="ml-2 group-hover/btn:translate-x-2 transition-transform">→</span>
-                            </a>
-                            <a href="#" class="px-8 py-4 border-2 border-neon-blue text-neon-blue font-bold rounded-lg hover:bg-neon-blue/10 transition-all text-base">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                        </div>
+                        <i class="fas fa-database" style="font-size: 1.5rem; color: #00f0ff;"></i>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 1rem;">2025</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <span style="flex: 1; padding: 0.5rem; background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.3); border-radius: 0.25rem; font-size: 0.75rem; color: #00f0ff; text-align: center;">Data Management</span>
                     </div>
                 </div>
             </div>
 
-<!-- PROYECTO 2: MV INVENTARIO PRO - Mini-landing format -->
-            <div class="project-showcase scroll-fade cursor-pointer group" data-project="mvpro">
-                <div class="space-y-8">
-                    <!-- Imagen con tamaño controlado (Placeholder) -->
-                    <div class="relative rounded-xl overflow-hidden image-shadow image-border h-64 md:h-80 lg:h-96 max-w-4xl mx-auto bg-gradient-to-br from-neon-cyan/25 via-neon-purple/15 to-bg-dark">
-                        <div class="h-full w-full flex items-center justify-center">
-                            <div class="text-center z-10 space-y-4 py-8">
-                                <i class="fas fa-crown text-6xl md:text-8xl text-neon-cyan/50 drop-shadow-lg"></i>
-                                <p class="text-text-muted text-lg md:text-xl font-semibold">Versión Premium - Solución Empresarial</p>
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-bg-dark/50 via-transparent to-transparent"></div>
-                        </div>
-
-                        <!-- Carousel dots overlay -->
-                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-cyan/70 hover:bg-neon-cyan transition-all" data-slide="0"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-cyan/40 hover:bg-neon-cyan transition-all" data-slide="1"></button>
-                            <button class="carousel-dot w-3 h-3 rounded-full bg-neon-cyan/40 hover:bg-neon-cyan transition-all" data-slide="2"></button>
-                        </div>
+            <!-- En Progreso -->
+            <div style="margin-top: 2rem; padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, rgba(15,22,41,0.8), rgba(10,15,28,0.6)); border: 1px solid rgba(236,72,153,0.3);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <h3 style="font-size: 1rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">Full Stack Developer</h3>
+                        <p style="font-size: 0.75rem; color: #9ca3af;">FreeCodeCamp</p>
                     </div>
-
-                    <!-- Contenido DEBAJO -->
-                    <div class="space-y-8 pt-4">
-                        <!-- Badge + Títulos -->
-                        <div class="space-y-4">
-<span class="inline-block px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-full text-xs font-bold uppercase tracking-wider">Optimización Avanzada</span>
-                            <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-                                MV Inventario <span class="text-neon-cyan">Pro</span>
-                            </h3>
-                            <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-3xl">
-                                La versión mejorada. Aquí consolidé conocimiento: optimización de queries (10s → 85ms), validación estricta 3 capas, seguridad JWT robusta y containerización con Docker.
-                            </p>
-                        </div>
-
-                        <!-- 3 MÉTRICAS GRANDES como cards con hover -->
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-cyan/15 to-neon-cyan/5 border border-neon-cyan/40 rounded-xl hover:border-neon-cyan/80 hover:bg-neon-cyan/25 hover:shadow-lg hover:shadow-neon-cyan/20 transition-all duration-300 group/stat">
-                                <div class="text-6xl md:text-7xl font-black text-neon-cyan mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">10x</div>
-                                <div class="text-sm font-bold text-neon-cyan mb-2 uppercase tracking-widest">Más Rápido</div>
-                                <p class="text-xs text-text-muted leading-relaxed">Queries optimizadas: antes 10s → ahora 85ms</p>
-                            </div>
-                            <div class="p-8 md:p-10 bg-gradient-to-br from-accent/15 to-accent/5 border border-accent/40 rounded-xl hover:border-accent/80 hover:bg-accent/25 hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 group/stat">
-                                <div class="text-6xl md:text-7xl font-black text-accent mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">100%</div>
-                                <div class="text-sm font-bold text-accent mb-2 uppercase tracking-widest">Validación</div>
-                                <p class="text-xs text-text-muted leading-relaxed">3 capas de protección: Frontend + Backend + BD</p>
-                            </div>
-                            <div class="p-8 md:p-10 bg-gradient-to-br from-neon-purple/15 to-neon-purple/5 border border-neon-purple/40 rounded-xl hover:border-neon-purple/80 hover:bg-neon-purple/25 hover:shadow-lg hover:shadow-neon-purple/20 transition-all duration-300 group/stat">
-                                <div class="text-6xl md:text-7xl font-black text-neon-purple mb-4 group-hover/stat:scale-110 transition-transform duration-300 origin-left">3</div>
-                                <div class="text-sm font-bold text-neon-purple mb-2 uppercase tracking-widest">Contenedores</div>
-                                <p class="text-xs text-text-muted leading-relaxed">Orquestados con Docker Compose</p>
-                            </div>
-                        </div>
-
-                        <!-- Descripción narrativa -->
-                        <div class="space-y-5 text-lg text-text-muted leading-relaxed border-l-2 border-neon-cyan/30 pl-6">
-                            <p>
-                                Esta versión es donde consolidé mi entendimiento de arquitectura backend escalable. Implementé validación estricta con Zod en 3 capas (Frontend + Backend + BD), seguridad JWT + bcryptjs, módulo POS con facturación automática, containerización con Docker y monitoreo de logs.
-                            </p>
-                            <p>
-                                <span class="text-neon-cyan font-semibold">Lo que aprendí:</span> Performance optimization, arquitetura de microservicios con Docker, QA mindset riguroso y cómo un buen diseño elimina 80% de bugs antes que salgan.
-                            </p>
-                        </div>
-
-                        <!-- Tech Stack horizontal -->
-                        <div class="space-y-4">
-                            <h4 class="text-xs font-bold text-text-muted uppercase tracking-widest">Stack Técnico</h4>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-6 py-3 bg-neon-cyan/15 border border-neon-cyan/50 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 hover:border-neon-cyan/80 transition-all">⚙️ Node.js</span>
-                                <span class="px-6 py-3 bg-accent/15 border border-accent/50 text-accent rounded-lg text-sm font-semibold hover:bg-accent/30 hover:border-accent/80 transition-all">✅ Zod Validation</span>
-                                <span class="px-6 py-3 bg-neon-purple/15 border border-neon-purple/50 text-neon-purple rounded-lg text-sm font-semibold hover:bg-neon-purple/30 hover:border-neon-purple/80 transition-all">🐳 Docker</span>
-                                <span class="px-6 py-3 bg-neon-pink/15 border border-neon-pink/50 text-neon-pink rounded-lg text-sm font-semibold hover:bg-neon-pink/30 hover:border-neon-pink/80 transition-all">🔐 JWT Auth</span>
-                            </div>
-                        </div>
-
-                        <!-- Botones CTA -->
-                        <div class="flex gap-4 flex-wrap pt-4">
-                            <a href="#" class="px-8 py-4 bg-gradient-to-r from-neon-cyan to-neon-blue text-bg-dark font-bold rounded-lg hover:shadow-xl hover:shadow-neon-cyan/50 transition-all group/btn text-base">
-                                Ver Proyecto <span class="ml-2 group-hover/btn:translate-x-2 transition-transform">→</span>
-                            </a>
-                            <a href="#" class="px-8 py-4 border-2 border-neon-cyan text-neon-cyan font-bold rounded-lg hover:bg-neon-cyan/10 transition-all text-base">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                        </div>
-                    </div>
+                    <i class="fas fa-code" style="font-size: 1.5rem; color: #ec4899;"></i>
+                </div>
+                <p style="font-size: 0.75rem; color: #ec4899; margin: 1rem 0;">En Progreso (~60%)</p>
+                <div style="width: 100%; height: 6px; background: rgba(55,65,81,0.5); border-radius: 3px; overflow: hidden;">
+                    <div style="width: 60%; height: 100%; background: linear-gradient(90deg, #ec4899, #d946ef); border-radius: 3px;"></div>
                 </div>
             </div>
         </div>
-
-        <!-- Divisor sutil inferior -->
-        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
     </section>
 
-    <!-- DIVISOR VISUAL ENTRE SECCIONES -->
-    <div class="h-px bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent"></div>
-
-    <!-- CERTIFICADOS SECTION -->
-    <section id="certificados" class="py-20 px-4 md:py-36 relative bg-gradient-to-b from-transparent via-bg-dark/30 to-transparent">
-        <!-- Divisor sutil superior -->
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-black mb-4 text-neon-blue neon-glow">Certificados & Validaciones</h2>
-            <p class="text-lg text-text-muted mb-12">Educación continua y validación de competencias</p>
+    <!-- CONTACTO -->
+    <section id="contacto" style="padding: 5rem 1rem; background: linear-gradient(180deg, rgba(10,15,28,0.5), #0a0f1c);">
+        <div style="max-width: 42rem; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; font-weight: 700; color: #00d9ff; text-align: center; margin-bottom: 1rem;">Conectemos</h2>
+            <p style="color: #9ca3af; text-align: center; margin-bottom: 2rem;">Abierto a conversaciones sobre arquitectura y calidad</p>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Certificado 1 -->
-                <div class="p-6 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-neon-blue mb-1">Claude Code Mastery</h3>
-                            <p class="text-text-muted text-sm">Certificado de Competencia</p>
-                        </div>
-                        <i class="fas fa-certificate text-neon-cyan text-2xl"></i>
-                    </div>
-                    <p class="text-text-subtle text-xs mb-4">Completado: 2025</p>
-                    <div class="flex gap-3">
-                        <button class="cert-preview px-4 py-2 bg-neon-blue/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-blue/30 transition-all" data-cert="cert1">
-                            <i class="fas fa-file-pdf mr-2"></i>Ver PDF
-                        </button>
-                        <a href="public/assets/images/certificados/certificado de claude code.pdf" download class="px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 transition-all">
-                            <i class="fas fa-download mr-2"></i>Descargar
-                        </a>
-                    </div>
+            <form id="contactForm" style="padding: 2rem; border-radius: 0.75rem; background: rgba(15,22,41,0.8); border: 1px solid rgba(0,217,255,0.2); margin-bottom: 2rem;">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; color: #00d9ff; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Nombre</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; background: #0a0f1c; border: 1px solid rgba(0,217,255,0.2); color: white; box-sizing: border-box;">
                 </div>
-
-                <!-- Certificado 2 -->
-                <div class="p-6 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-neon-blue mb-1">ClaseFlix - Power BI</h3>
-                            <p class="text-text-muted text-sm">Análisis de Datos & Visualización</p>
-                        </div>
-                        <i class="fas fa-certificate text-neon-cyan text-2xl"></i>
-                    </div>
-                    <p class="text-text-subtle text-xs mb-4">Completado: 2025</p>
-                    <div class="flex gap-3">
-                        <button class="cert-preview px-4 py-2 bg-neon-blue/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-blue/30 transition-all" data-cert="cert2">
-                            <i class="fas fa-file-pdf mr-2"></i>Ver PDF
-                        </button>
-                        <a href="public/assets/images/certificados/certificado-claseflix PowerBI.pdf" download class="px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 transition-all">
-                            <i class="fas fa-download mr-2"></i>Descargar
-                        </a>
-                    </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; color: #00d9ff; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Email</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; background: #0a0f1c; border: 1px solid rgba(0,217,255,0.2); color: white; box-sizing: border-box;">
                 </div>
-
-                <!-- Certificado 3 -->
-                <div class="p-6 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-neon-blue mb-1">Curador de Datos</h3>
-                            <p class="text-text-muted text-sm">Data Management & Curation</p>
-                        </div>
-                        <i class="fas fa-certificate text-neon-cyan text-2xl"></i>
-                    </div>
-                    <p class="text-text-subtle text-xs mb-4">Completado: 2025</p>
-                    <div class="flex gap-3">
-                        <button class="cert-preview px-4 py-2 bg-neon-blue/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-blue/30 transition-all" data-cert="cert3">
-                            <i class="fas fa-file-pdf mr-2"></i>Ver PDF
-                        </button>
-                        <a href="public/assets/images/certificados/curador de datos.pdf" download class="px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-cyan/30 transition-all">
-                            <i class="fas fa-download mr-2"></i>Descargar
-                        </a>
-                    </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; color: #00d9ff; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Asunto</label>
+                    <input type="text" name="subject" required style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; background: #0a0f1c; border: 1px solid rgba(0,217,255,0.2); color: white; box-sizing: border-box;">
                 </div>
-
-                <!-- Certificado 4 -->
-                <div class="p-6 bg-bg-card/40 backdrop-blur-xl border border-neon-blue/20 rounded-lg hover:border-neon-blue/50 transition-all duration-300">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-neon-blue mb-1">Full Stack Web Development</h3>
-                            <p class="text-text-muted text-sm">The Complete JavaScript Course (En Proceso 🚀)</p>
-                        </div>
-                        <i class="fas fa-hourglass-half text-neon-cyan text-2xl"></i>
-                    </div>
-                    <p class="text-text-subtle text-xs mb-4">Completado: ~50% - FreeCodeCamp</p>
-                    <div class="flex gap-3">
-                        <button class="px-4 py-2 bg-neon-blue/20 text-neon-cyan rounded-lg text-sm font-semibold hover:bg-neon-blue/30 transition-all cursor-not-allowed opacity-50">
-                            <i class="fas fa-lock mr-2"></i>Próximamente
-                        </button>
-                        <div class="px-4 py-2 bg-neon-cyan/20 text-neon-cyan rounded-lg text-sm font-semibold">
-                            <i class="fas fa-code mr-2"></i>En Progreso
-                        </div>
-                    </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; color: #00d9ff; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">Mensaje</label>
+                    <textarea name="message" rows="4" required style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; background: #0a0f1c; border: 1px solid rgba(0,217,255,0.2); color: white; resize: vertical; box-sizing: border-box;"></textarea>
                 </div>
-            </div>
-        </div>
-    <section id="contacto" class="py-20 px-4 md:py-36 relative bg-gradient-to-b from-bg-dark/50 via-bg-dark to-bg-dark/80">
-        <!-- Divisor sutil superior -->
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-blue/30 to-transparent"></div>
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-black mb-4 text-center text-neon-blue neon-glow">Conectemos</h2>
-            <p class="text-lg text-text-muted mb-12 text-center">Abierto a conversaciones sobre arquitectura, performance y calidad</p>
-            
-            <!-- Formulario de Contacto -->
-            <form id="contactForm" class="space-y-6 p-8 bg-bg-card border border-neon-blue/20 rounded-lg">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-neon-blue mb-2">Nombre</label>
-                    <input type="text" id="name" name="name" required placeholder="Tu nombre"
-                           class="w-full px-4 py-3 bg-bg-dark border border-neon-blue/20 text-white rounded-lg focus:border-neon-blue focus:outline-none transition-all focus:shadow-lg focus:shadow-neon-blue/20">
-                </div>
-                
-                <div>
-                    <label for="email" class="block text-sm font-medium text-neon-blue mb-2">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="tu.email@ejemplo.com"
-                           class="w-full px-4 py-3 bg-bg-dark border border-neon-blue/20 text-white rounded-lg focus:border-neon-blue focus:outline-none transition-all focus:shadow-lg focus:shadow-neon-blue/20">
-                </div>
-                
-                <div>
-                    <label for="subject" class="block text-sm font-medium text-neon-blue mb-2">Asunto</label>
-                    <input type="text" id="subject" name="subject" required placeholder="¿Sobre qué quieres hablar?"
-                           class="w-full px-4 py-3 bg-bg-dark border border-neon-blue/20 text-white rounded-lg focus:border-neon-blue focus:outline-none transition-all focus:shadow-lg focus:shadow-neon-blue/20">
-                </div>
-                
-                <div>
-                    <label for="message" class="block text-sm font-medium text-neon-blue mb-2">Mensaje</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Tu mensaje aquí..."
-                              class="w-full px-4 py-3 bg-bg-dark border border-neon-blue/20 text-white rounded-lg focus:border-neon-blue focus:outline-none transition-all focus:shadow-lg focus:shadow-neon-blue/20 resize-none"></textarea>
-                </div>
-                
-                <button type="submit" class="w-full px-6 py-3 bg-neon-blue text-bg-dark font-semibold rounded-lg hover:bg-neon-cyan hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
-                    Enviar Mensaje
-                </button>
+                <button type="submit" style="width: 100%; padding: 0.75rem; background: linear-gradient(90deg, #00d9ff, #00f0ff); color: #0a0f1c; font-weight: 700; border: none; border-radius: 0.5rem; cursor: pointer;">Enviar Mensaje</button>
             </form>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12 flex-wrap">
-                <a href="mailto:fabisdev@email.com" 
-                   class="px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-bg-dark hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
-                    <i class="fas fa-envelope mr-2"></i>Email
-                </a>
-                <a href="https://github.com/fabisdev" target="_blank" rel="noopener"
-                   class="px-6 py-3 border-2 border-neon-blue text-neon-blue font-semibold rounded-lg hover:bg-neon-blue hover:text-bg-dark hover:shadow-lg hover:shadow-neon-blue/50 transition-all">
-                    <i class="fab fa-github mr-2"></i>GitHub
-                </a>
-                <a href="https://linkedin.com/in/fabisdev" target="_blank" rel="noopener"
-                   class="px-6 py-3 border-2 border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-bg-dark hover:shadow-lg hover:shadow-accent/50 transition-all">
-                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
-                </a>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                <a href="mailto:fabianenriquepilonieta@gmail.com" style="padding: 0.75rem 1.5rem; border: 2px solid #00d9ff; color: #00d9ff; border-radius: 0.5rem; font-weight: 600; text-decoration: none;">Email</a>
+                <a href="https://github.com/Fabian20077" target="_blank" style="padding: 0.75rem 1.5rem; border: 2px solid #00d9ff; color: #00d9ff; border-radius: 0.5rem; font-weight: 600; text-decoration: none;">GitHub</a>
+                <a href="https://www.linkedin.com/in/fabian-pilonieta-5b2432317" target="_blank" style="padding: 0.75rem 1.5rem; border: 2px solid #00f0ff; color: #00f0ff; border-radius: 0.5rem; font-weight: 600; text-decoration: none;">LinkedIn</a>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-8 px-4 md:py-12 border-t border-neon-blue/10 bg-bg-darker">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <h3 class="text-lg font-bold text-neon-blue mb-4">FabisDev</h3>
-                    <p class="text-text-muted text-sm">Full Stack Developer | QA Engineer | Backend Specialist</p>
-                </div>
-                <div>
-                    <h4 class="text-sm font-semibold text-neon-blue mb-3">Enlaces Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#hero" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Inicio</a></li>
-                        <li><a href="#stack" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Stack Técnico</a></li>
-                        <li><a href="#experiencia" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Experiencia</a></li>
-                        <li><a href="#proyectos" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Proyectos</a></li>
-                        <li><a href="#certificados" class="text-text-muted hover:text-neon-cyan transition-colors text-sm">Certificados</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-sm font-semibold text-neon-blue mb-3">Redes Sociales</h4>
-                    <div class="flex gap-4">
-                        <a href="https://github.com/fabisdev" target="_blank" rel="noopener"
-                           class="text-text-muted hover:text-neon-cyan transition-colors">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/fabisdev" target="_blank" rel="noopener"
-                           class="text-text-muted hover:text-neon-cyan transition-colors">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="mailto:fabisdev@email.com"
-                           class="text-text-muted hover:text-neon-cyan transition-colors">
-                            <i class="fas fa-envelope text-xl"></i>
-                        </a>
-                    </div>
-                </div>
+    <footer style="padding: 2rem 1rem; border-top: 1px solid rgba(0,217,255,0.1); background: #050812;">
+        <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; md:flex-row; justify-content: space-between; align-items: center; gap: 1rem;">
+            <div>
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: #00d9ff; margin-bottom: 0.25rem;">FabisDev</h3>
+                <p style="font-size: 0.875rem; color: #9ca3af;">Full Stack Developer | QA Engineer</p>
             </div>
-            <div class="border-t border-neon-blue/10 pt-6 text-center">
-                <p class="text-text-subtle text-sm">© 2024 FabisDev. Todos los derechos reservados.</p>
+            <div style="display: flex; gap: 1rem;">
+                <a href="https://github.com/Fabian20077" target="_blank" style="color: #9ca3af;"><i class="fab fa-github" style="font-size: 1.25rem;"></i></a>
+                <a href="https://www.linkedin.com/in/fabian-pilonieta-5b2432317" target="_blank" style="color: #9ca3af;"><i class="fab fa-linkedin" style="font-size: 1.25rem;"></i></a>
+                <a href="mailto:fabianenriquepilonieta@gmail.com" style="color: #9ca3af;"><i class="fas fa-envelope" style="font-size: 1.25rem;"></i></a>
             </div>
         </div>
+        <p style="text-align: center; color: #6b7280; font-size: 0.875rem; margin-top: 1rem;">© 2024 FabisDev. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- MODAL PARA PROYECTOS -->
-    <div id="projectModal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-bg-card border border-neon-blue/30 rounded-lg max-w-2xl w-full max-h-96 overflow-y-auto relative">
-            <button id="closeModal" class="absolute top-4 right-4 text-neon-cyan hover:text-neon-blue transition-colors text-2xl">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div id="modalContent" class="p-8">
-                <!-- Se llenará dinámicamente -->
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL PARA CERTIFICADOS -->
-    <div id="certModal" class="hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-bg-card border border-neon-blue/30 rounded-lg max-w-2xl w-full relative">
-            <button id="closeCertModal" class="absolute top-4 right-4 text-neon-cyan hover:text-neon-blue transition-colors text-2xl z-10">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div id="certModalContent" class="p-8">
-                <img id="certImage" src="" alt="Certificado" class="w-full rounded-lg">
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
